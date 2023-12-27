@@ -1,1 +1,29 @@
+name: CI
+on:
+ 
+  push:
+  workflow_dispatch:
+ 
+jobs:
 
+  build:
+    runs-on: ubuntu-latest	
+    steps:	
+      - uses: actions/checkout@v3
+      - name: Build
+        run: |
+          echo "Building"
+      - name: SONAR
+        run: |
+          echo "Sonar"     
+          chmod +x gradlew
+          ./gradlew build sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD_JAVA}} 
+          ./gradlew jacocoTestReport sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD_JAVA}} 
+          
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        env:
+          SONAR_TOKEN: ${{secrets.TOKEN_SONARCLOUD_JAVA}}
+          SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          scanMetadataReportFile: build/sonar/report-task.txt   
