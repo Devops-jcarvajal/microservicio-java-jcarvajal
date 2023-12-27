@@ -26,4 +26,4 @@ jobs:
           SONAR_TOKEN: ${{secrets.TOKEN_SONARCLOUD_JAVA_2}}
           SONAR_HOST_URL: https://sonarcloud.io
         with:
-          scanMetadataReportFile: build/sonar/report-task.txt   
+          scanMetadataReportFile: build/sonar/report-task.txt      
