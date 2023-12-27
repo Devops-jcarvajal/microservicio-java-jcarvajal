@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'org.sonarqube' version '4.2.1.3168'
+	id 'jacoco'
 }
 
 group = 'com.example'
@@ -15,6 +17,23 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "Devops-jcarvajal_microservicio-java-jcarvajal"
+    property "sonar.organization", "devops-jcarvajal"
+    property "sonar.host.url", "https://sonarcloud.io/"
+    property "sonar.projectName", "microservicio-java-jcarvajal"
+  }
+}
+
+jacocoTestReport {
+	dependsOn test
+	reports{
+		html.enabled true
+		xml.enabled true
+	}
 }
 
 test {
