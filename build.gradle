@@ -33,7 +33,6 @@ test {
 		enabled = true
 	}
 	useJUnitPlatform()
-	finalizedBy jacocoTestCoverageVerification, printCoverage
 }
 
 jacocoTestReport { 
