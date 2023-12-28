@@ -23,6 +23,7 @@ jobs:
           chmod +x gradlew
           ./gradlew build sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD_JAVA_2}} 
           ./gradlew jacocoTestReport sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD_JAVA_2}} 
+          ./gradle test jacocoTestReport
           
       - name: SonarQube Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@master
