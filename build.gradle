@@ -28,10 +28,6 @@ sonar {
   }
 }
 
-jacoco {
-        reportsDir = file("$buildDir/customJacocoReportDir")
-    }
-
 jacocoTestReport {
     reports {
         xml.enabled false
