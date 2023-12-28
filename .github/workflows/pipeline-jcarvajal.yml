@@ -40,8 +40,8 @@ jobs:
 
       - name: Copia de Jar a Raiz de proyecto
         run: |
-          cp $GITHUB_WORKSPACE/build/libs/testing-web-complete-0.0.1.jar .
-          chmod 777 testing-web-complete-0.0.1.jar
+          cp $GITHUB_WORKSPACE/build/libs/testing-web-complete-2.6.1.jar .
+          chmod 777 testing-web-complete-2.6.0.jar
           ls -lt 
       
       - name: Docker Build
