@@ -63,5 +63,6 @@ test {
 	useJUnitPlatform()
 }
 
+check.dependsOn jacocoTestCoverageVerification
 
 
