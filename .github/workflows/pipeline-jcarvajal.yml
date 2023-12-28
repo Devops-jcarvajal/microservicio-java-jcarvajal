@@ -13,6 +13,10 @@ jobs:
       - name: Build
         run: |
           echo "Building"
+          chmod +x gradlew
+          ./gradlew build
+          ls -ltr
+          
       - name: SONAR
         run: |
           echo "Sonar"     
