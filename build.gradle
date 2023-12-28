@@ -28,35 +28,28 @@ sonar {
   }
 }
 
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                minimum = 0.7
-            }
-
-            failOnViolation true
-        }
-    }
-}
-
-jacocoTestReport { 
-     reports { 
-        csv.enabled false 
-        xml.enabled false 
-        html { 
-            enabled true 
-            destination file("$buildDir/reports/jacoco") 
-        } 
-    } 
-   executionData(test) 
-} 
-
 test {
 	jacoco {
 		enabled = true
 	}
 	useJUnitPlatform()
+	finalizedBy jacocoTestCoverageVerification, printCoverage
+}
+
+jacocoTestReport { 
+        reports.xml.enabled true  
+} 
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+
+            failOnViolation true
+        }
+    }
 }
 
 check.dependsOn jacocoTestCoverageVerification
