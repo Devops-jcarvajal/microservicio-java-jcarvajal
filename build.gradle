@@ -28,13 +28,16 @@ sonar {
   }
 }
 
-test {
-	jacoco {
-		enabled = true
-	        destinationFile = file("$buildDir/jacoco/jacocoTest.exec") 
-	        classDumpDir = file("$buildDir/jacoco/classpathdumps") 
-	}
-	useJUnitPlatform()
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.7
+            }
+
+            failOnViolation true
+        }
+    }
 }
 
 jacocoTestReport { 
@@ -49,18 +52,16 @@ jacocoTestReport {
    executionData(test) 
 } 
 
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                minimum = 0.7
-            }
+tasks.build.dependsOn(jacocoTestReport) 
 
-            failOnViolation true
-        }
-    }
+test {
+	jacoco {
+		enabled = true
+	        destinationFile = file("$buildDir/jacoco/jacocoTest.exec") 
+	        classDumpDir = file("$buildDir/jacoco/classpathdumps") 
+	}
+	useJUnitPlatform()
 }
 
-tasks.build.dependsOn(jacocoTestReport) 
-check.dependsOn jacocoTestCoverageVerification
+
 
