@@ -28,6 +28,13 @@ sonar {
   }
 }
 
+test {
+	jacoco {
+		enabled = true
+	}
+	useJUnitPlatform()
+}
+
 jacocoTestReport {
     reports {
         xml.enabled false
@@ -35,9 +42,4 @@ jacocoTestReport {
     }
 }
 	
-test {
-	jacoco {
-		enabled = true
-	}
-	useJUnitPlatform()
-}
+
