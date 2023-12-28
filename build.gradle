@@ -37,8 +37,8 @@ test {
 
 jacocoTestReport {
     reports {
-        xml.enabled true
-        csv.enabled true
+        xml.enabled false
+        csv.enabled false
         html.enabled true
     }
 }
@@ -55,10 +55,5 @@ jacocoTestCoverageVerification {
     }
 }
 
-jacoco {
-    toolVersion = "0.8.1"
-}
-
-// to run coverage verification during the build (and fail when appropriate)
 check.dependsOn jacocoTestCoverageVerification
 
