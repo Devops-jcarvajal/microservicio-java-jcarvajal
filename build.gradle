@@ -55,8 +55,6 @@ jacocoTestReport {
 test {
 	jacoco {
 		enabled = true
-	        destinationFile = file("$buildDir/jacoco/jacocoTest.exec") 
-	        classDumpDir = file("$buildDir/jacoco/classpathdumps") 
 	}
 	useJUnitPlatform()
 }
