@@ -19,6 +19,9 @@ jobs:
           echo "Build SRC"
           cd build
           ls -ltr
+          echo "Libs SRC"
+          cd libs
+          ls -ltr
         
       - name: SONAR
         run: |
