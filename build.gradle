@@ -52,8 +52,6 @@ jacocoTestReport {
    executionData(test) 
 } 
 
-tasks.build.dependsOn(jacocoTestReport) 
-
 test {
 	jacoco {
 		enabled = true
