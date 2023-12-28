@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservicio-deployment
+  labels:
+    app: microservicio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservicio
+  template:
+    metadata:
+      labels:
+        app: microservicio
+    spec:
+      containers:
+      - name: microservicio
+        image: jcarvajalocares/microservicio:latest
+        ports:
+        - containerPort: 8085
