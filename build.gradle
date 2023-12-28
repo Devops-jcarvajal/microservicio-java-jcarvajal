@@ -37,5 +37,8 @@ jacocoTestReport {
 }
 
 test {
+	jacoco {
+		enabled = true
+	}
 	useJUnitPlatform()
 }
