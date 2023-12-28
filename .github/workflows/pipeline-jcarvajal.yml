@@ -16,7 +16,10 @@ jobs:
           chmod +x gradlew
           ./gradlew build
           ls -ltr
-          
+          echo "Build SRC"
+          cd build
+          ls -ltr
+        
       - name: SONAR
         run: |
           echo "Sonar"     
