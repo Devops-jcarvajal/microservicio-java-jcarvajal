@@ -58,3 +58,14 @@ jobs:
       - name: Docker Push
         run: |
           docker push jcarvajalocares/microservicio 
+
+  deploy: 
+    runs-on: self-hosted 
+    needs: build
+    steps: 
+
+    - uses: actions/checkout@v3
+    
+    - name: Deploy to Minikube
+      run: |
+        kubectl apply -f deployment.yml
