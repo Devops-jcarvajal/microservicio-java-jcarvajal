@@ -55,7 +55,7 @@ jobs:
           docker build --tag jcarvajalocares/microservicio:latest .
           docker images
 
-      - name: Docker Push
+      - name: Docker Push 
         run: |
           docker push jcarvajalocares/microservicio 
 
